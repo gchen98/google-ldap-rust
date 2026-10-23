@@ -1,0 +1,15 @@
+[Unit]
+Description=Google Contacts LDAP sync microservice
+After=network.target
+
+[Service]
+Type=simple
+User=garyc
+WorkingDirectory=/home/garyc/code/ldapeditor/google_ldap_rs
+Environment="ROCKET_PORT=8081"
+ExecStart=/home/garyc/code/ldapeditor/google_ldap_rs/target/release/google_ldap_rs
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

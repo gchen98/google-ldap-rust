@@ -1,0 +1,12 @@
+# LDAP connection settings for google_ldap_rs.
+# Copy to ldap_config.toml (in the service's working directory) and edit.
+# ldap_config.toml is git-ignored; never commit real credentials.
+
+# Hostname of the LDAP server. The service connects to ldap://<host>:389.
+host = "ldap.example.com"
+
+# DN used to bind. It needs read, add and delete rights under ou=Public.
+admin_dn = "cn=admin,dc=example,dc=com"
+
+# Password for admin_dn.
+password = "changeme"

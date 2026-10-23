@@ -1,0 +1,18 @@
+# Google users whose contacts are synced with LDAP.
+# Copy to google_config.toml (in the service's working directory) and edit.
+#
+# Each entry:
+#   username     - Google account email, passed to the Go People API service.
+#   subscription - LDAP `ou` value given to contacts this user creates in Google
+#                  that are not yet in LDAP.
+#   filter       - LDAP `ou` values this user sees. Any LDAP contact whose `ou`
+#                  list contains at least one of these is synced to the user's
+#                  Google contacts.
+#
+# Users that share a filter value (e.g. "family") share those contacts, and
+# edits made by one of them propagate to the others.
+
+users = [
+    { username = "alice@example.com", subscription = "alice", filter = ["alice", "family"] },
+    { username = "bob@example.com",   subscription = "bob",   filter = ["bob", "family", "work"] },
+]
